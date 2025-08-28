@@ -1,0 +1,29 @@
+.sidebar-superadmin {
+  display: flex; flex-direction: column;
+  height: 100%; min-height: 100%;
+  width: 235px;
+  background: #f8fbff;
+  border-right: 1.5px solid #d1e2fd;      /* single border lives here */
+  padding: 12px 10px;
+  justify-content: flex-start;             /* no giant gap */
+}
+
+.sidebar-links { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+
+/* your .sidebar-link/.active styles can live in App.css; keep as-is */
+
+.sidebar-footer {
+  margin-top: auto;                        /* sits near bottom */
+  padding: 12px 10px;
+  border-top: 1px solid #e3edff;
+  display: flex; gap: 10px; align-items: center;
+}
+
+.user-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #d5e7fb; color: #4663a5;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+}
+.user-info .user-name { font-weight: 700; color: #1f2937; line-height: 1.1; }
+.user-info .user-role { color: #6b7280; font-size: 12px; }

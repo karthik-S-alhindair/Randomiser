@@ -1,0 +1,70 @@
+/* Fixed admin top bar (mirrors UserTopBar but scoped to admin classes) */
+.admin-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  z-index: 1100;
+  background: #fff;
+  border-bottom: 1px solid #d7e1f3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 34px 0 24px;
+  font-family: "Inter", sans-serif;
+}
+
+.admin-topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.admin-topbar__logo {
+  height: 28px;
+}
+.admin-topbar__brand {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.admin-topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.admin-topbar__username {
+  font-weight: 600;
+  color: #111827;
+  margin-right: 6px;
+}
+
+.admin-topbar__iconbtn {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+}
+.admin-topbar__icon {
+  width: 22px;
+  height: 22px;
+  color: #374151;
+}
+
+.admin-topbar__logout {
+  margin-left: 8px;
+  background: #fff;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  padding: 8px 18px;
+  color: #222;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.17s, color 0.17s, box-shadow 0.17s,
+    border-color 0.17s;
+}
+.admin-topbar__logout:hover {
+  background: #f1f5fb;
+  color: #db3030;
+  border-color: #ffbcbc;
+}

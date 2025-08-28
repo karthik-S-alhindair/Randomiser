@@ -1,0 +1,70 @@
+.admin-radio-group {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-left: 18px;
+  height: 36px; /* aligns with input/select height */
+}
+
+.admin-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  font-size: 1.09em;
+  font-weight: 500;
+  color: #23293b;
+  user-select: none;
+}
+
+.admin-radio-input {
+  display: none;
+}
+
+.admin-radio-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #1976f5;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.18s, box-shadow 0.14s;
+  margin-right: 1.5px;
+  position: relative;
+}
+
+.admin-radio-input:checked + .admin-radio-custom::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  background: #1976f5;
+  border-radius: 50%;
+  display: block;
+}
+
+.admin-radio-input:focus + .admin-radio-custom {
+  box-shadow: 0 0 0 2px #cde3fa;
+}
+/* AdminUploadStaffData.css (append) */
+.useruploadstaff-field input[disabled] {
+  color: #111;
+  background: #f3f6fb;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* Responsive tweak for smaller screens (optional) */
+@media (max-width: 1200px) {
+  .admin-radio-group {
+    margin-left: 0;
+    gap: 16px;
+    height: auto;
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Turns icon black */
+  opacity: 1;
+}

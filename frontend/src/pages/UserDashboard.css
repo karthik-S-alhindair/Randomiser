@@ -1,0 +1,252 @@
+/* Page scaffold: fixed bars + scrollable main */
+:root {
+  --tb: 68px;
+  --sb: 240px;
+}
+
+.userdash-outer {
+  padding-top: var(--tb); /* below fixed topbar */
+  padding-left: var(--sb); /* beside fixed sidebar */
+  min-height: 100vh;
+  height: 100vh;
+  background: #ffffff;
+  overflow: hidden; /* the main element will scroll */
+  font-family: "Inter", sans-serif;
+}
+.userdash-inner {
+  display: flex;
+  flex: 1;
+  min-height: 0;       /* allow child overflow */
+}
+/* Main scroll container */
+.userdash-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: calc(100vh - 68px);
+  overflow: auto; /* only main scrolls */
+  padding: 36px 40px 24px 40px;
+  background: #ffffff;
+}
+
+.userdash-content {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 4px;
+}
+
+.userdash-welcome {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 0.7rem;
+  color: #22223b;
+}
+
+.userdash-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+.userdash-filter-btn {
+  border: none;
+  background: transparent;
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.05s;
+}
+.userdash-filter-btn:hover {
+  box-shadow: 0 0 0 3px #e9f2ff;
+}
+.userdash-filter-btn:active {
+  transform: scale(0.98);
+}
+.userdash-filter-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.userdash-title {
+  font-size: 2.65rem;
+  font-weight: 700;
+  margin-bottom: 38px;
+  color: #131319;
+  letter-spacing: -1px;
+}
+
+.userdash-cards-row {
+  display: flex;
+  gap: 38px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.userdash-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  min-width: 520px;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(21, 78, 203, 0.1);
+  padding: 32px 32px 26px 32px;
+  height: 370px;
+}
+.userdash-card-blue {
+  background: linear-gradient(90deg, #3573b5 0%, #8dc0ee 100%);
+  color: #fff;
+}
+.userdash-card-red {
+  background: linear-gradient(90deg, #f84040 0%, #fca8a8 100%);
+  color: #fff;
+}
+
+.userdash-card-left {
+  display: flex;
+  flex-direction: column;
+  flex: 1.5;
+  min-width: 200px;
+  max-width: 270px;
+}
+.userdash-pie-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+  margin-left: 20px;
+}
+
+.userdash-card-label {
+  font-size: 1.55rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.userdash-big-number {
+  font-size: 3.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin: 16px 0 18px;
+}
+
+.userdash-pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.userdash-pie-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 1.04em;
+  color: #fff;
+  opacity: 0.94;
+}
+.userdash-pie-legend-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+}
+.userdash-pie-legend-label {
+  color: #f3f4f6;
+}
+
+/* Modal */
+.userdash-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.45);
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 64px;
+}
+.userdash-modal {
+  width: min(860px, 92vw);
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.userdash-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid #efefef;
+}
+.userdash-modal-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+.userdash-modal-breadcrumb {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+.userdash-modal-body {
+  padding: 18px;
+}
+.userdash-modal-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+.userdash-modal-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+}
+.userdash-modal-field label {
+  font-size: 0.96rem;
+  color: #374151;
+  margin-bottom: 6px;
+}
+.userdash-modal-field input[type="date"] {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fff;
+  padding: 9px 12px;
+  font-size: 1rem;
+  color: #000;
+}
+.userdash-modal-field input[type="date"]:focus {
+  border-color: #1787ff;
+}
+.userdash-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 8px;
+}
+.userdash-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.userdash-btn-primary {
+  background: #1787ff;
+  color: #fff;
+}
+.userdash-btn-danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .userdash-cards-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .userdash-card {
+    min-width: unset;
+  }
+}

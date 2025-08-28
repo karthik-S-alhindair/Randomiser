@@ -1,0 +1,124 @@
+/* src/pages/Mainlogin.css */
+body, html, #root {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.login-split-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.login-left-panel {
+  flex: 0 0 33.33%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 48px 0 0 64px;
+  min-width: 320px;
+  box-sizing: border-box;
+}
+.login-logo-1{
+  width: 85%;
+  margin-left: 0;
+  margin-bottom: 5rem;
+}
+.login-logo {
+  width: 180px;
+  margin-left: 0;
+  margin-bottom: 2rem;
+}
+
+.login-title-r{
+  color: black;
+  font-size: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 9;
+  margin-bottom: 5rem;
+}
+
+.login-form {
+  width: 90%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.login-form label {
+  font-size: 1.12rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: black;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  height: 45px;
+  border: 1.5px solid #2563eb;
+  border-radius: 7px;
+  padding: 0 16px;
+  font-size: 1.1rem;
+  background: #f9f9f9;
+  outline: none;
+  margin-bottom: 0;
+  color: black;
+}
+
+.pwd-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 110%;
+}
+
+.pwd-box input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 16px;
+  width: 30px;
+  height: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.85;
+}
+
+.login-btn {
+  margin-top: 22px;
+  background: linear-gradient(90deg, #1871ee, #1336ad);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  height: 48px;
+  width: 110%;
+  cursor: pointer;
+  transition: background 0.3s;
+  box-shadow: 0 1px 8px rgba(16, 54, 170, 0.08);
+}
+
+.login-btn:hover {
+  background: linear-gradient(90deg, #2563eb, #1940c9);
+}
+
+.login-right-panel {
+  flex: 1 1 66.66%;
+  background-image: url("../assets/Images/Login_Bg.jpg"); /* fallback for direct CSS import */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:left;
+  min-width: 0;
+  width: 66vw;
+  min-height: 100vh;
+}

@@ -1,0 +1,276 @@
+/* Page shell */
+.ar-outer {
+  display: flex;
+  background: #f7fafc;
+}
+
+/* Column wrapper beside the sidebar */
+.ar-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0; /* avoid double scroll from children */
+}
+
+/* MAIN (the only scroll container) */
+.ar-main {
+  /* Compensate for fixed sidebar + topbar */
+  margin-left: 250px; /* sidebar width */
+  padding: 84px 40px 28px 40px; /* ~68px topbar + breathing space */
+  height: calc(100vh - 68px); /* under the fixed topbar */
+  overflow: auto; /* only this scrolls */
+  background: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+/* Header */
+.ar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.ar-title {
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: #111;
+}
+.ar-breadcrumb {
+  font-size: 1.01rem;
+  color: #444;
+  opacity: 0.9;
+}
+.ar-bold {
+  font-weight: 600;
+  color: #111;
+  opacity: 1;
+}
+
+/* Filters row */
+.ar-filters {
+  display: flex;
+  flex-wrap: wrap; /* wrap on small screens */
+  gap: 16px 24px;
+  margin-bottom: 14px;
+  align-items: flex-end;
+  color: black;
+}
+.ar-filter-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px; /* a bit wider so labels/inputs align nicely */
+}
+.ar-filter-group label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 5px;
+  letter-spacing: 0.01em;
+}
+.ar-input {
+  padding: 8px 12px;
+  border-radius: 7px;
+  border: 1.2px solid #e4e6ea;
+  font-size: 1rem;
+  background: #f7fafc;
+  outline: none;
+  transition: border 0.18s;
+  color: black;
+}
+.ar-input:focus {
+  border: 1.3px solid #1787ff;
+}
+.ar-input-date {
+  cursor: pointer;
+}
+.ar-input-select {
+  background: #fff;
+  cursor: pointer;
+}
+
+.ar-radio-group {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  height: 36px; /* align with input height */
+  margin-left: 6px;
+}
+
+.ar-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  font-size: 1.09em;
+  font-weight: 500;
+  color: #23293b;
+  user-select: none;
+}
+.ar-radio-input {
+  display: none;
+}
+.ar-radio-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #1976f5;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.18s, box-shadow 0.14s;
+  position: relative;
+}
+.ar-radio-input:checked + .ar-radio-custom::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  background: #1976f5;
+  border-radius: 50%;
+  display: block;
+}
+.ar-radio-input:focus + .ar-radio-custom {
+  box-shadow: 0 0 0 2px #cde3fa;
+}
+
+.ar-search-btn {
+  background: #1787ff;
+  color: #fff;
+  border: none;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 6px;
+  padding: 9px 28px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.19s;
+  align-self: flex-end;
+}
+.ar-search-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.ar-search-btn:hover:not(:disabled) {
+  background: #0d67be;
+}
+
+.ar-warning {
+  color: #d90429;
+  background: #fff4f4;
+  border: 1px solid #f9dada;
+  border-radius: 6px;
+  padding: 8px 16px;
+  margin: 10px 0 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Table card — full width, no clipping */
+.ar-table-card {
+  background: #fff;
+  color: black;
+  border-radius: 13px;
+  border: 1.5px solid #f1f1f1;
+  width: 100%; /* fill the content width */
+  max-width: 1200px; /* but don’t grow forever on huge screens */
+  overflow: auto; /* allow horizontal scroll if needed */
+  box-sizing: border-box;
+  padding: 18px 16px 8px 16px;
+  margin: 6px 0 0 0;
+}
+
+/* Table search */
+.ar-table-search-row {
+  width: 100%;
+  margin-bottom: 12px;
+}
+.ar-search-input {
+  width: 50%;
+  border: 1.1px solid #e4e6ea;
+  border-radius: 7px;
+  padding: 9px 14px;
+  font-size: 1rem;
+  background: #f7fafc;
+  color: black;
+  outline: none;
+  transition: border 0.18s;
+}
+.ar-search-input:focus {
+  border: 1.2px solid #1787ff;
+}
+
+/* Table */
+.ar-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 1rem;
+  min-width: 760px; /* keeps columns readable; pairs with overflow:auto above */
+}
+.ar-table th,
+.ar-table td {
+  padding: 13px 12px;
+  border-bottom: 1.1px solid #ececec;
+  text-align: left;
+  font-size: 1.01rem;
+  white-space: nowrap;
+}
+.ar-table th {
+  background: #fff;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 1.8px solid #f0f1f3;
+  position: sticky; /* header remains visible in long lists */
+  top: 0;
+  z-index: 1;
+}
+.ar-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Download button */
+.ar-dl-btn {
+  border: none;
+  background: #ffffff;
+  border-radius: 7px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.16s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ar-dl-btn img {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* Pagination */
+.ar-pagination {
+  margin: 16px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  justify-content: center;
+}
+.ar-page-btn {
+  padding: 5px 16px;
+  border-radius: 6px;
+  background: #f7fafc;
+  border: 1px solid #e5e7eb;
+  color: #222;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.ar-page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.ar-page-num {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #1787ff;
+}

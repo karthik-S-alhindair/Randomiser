@@ -1,0 +1,214 @@
+/* === Layout tokens (scoped to the SADB frame) === */
+.sadb-frame {
+  --topbar-h: 64px;
+  --sidebar-w: 235px;
+
+  height: 100vh;
+  background: #f7fafc;
+  padding-top: var(--topbar-h);     /* keep content below fixed topbar */
+  overflow: hidden;                 /* no scroll here */
+}
+
+/* Main row under the topbar */
+.sadb-body {
+  height: calc(100vh - var(--topbar-h));
+  display: flex;
+  overflow: hidden;                 /* no scroll here either */
+  padding-left: var(--sidebar-w);   /* reserve space for fixed sidebar */
+  min-width: 0;                     /* allow children to shrink properly */
+}
+
+/* === Sidebar wrapper (single dividing line lives HERE) === */
+.sadb-sidebar-fixed {
+  position: fixed;
+  top: var(--topbar-h);
+  bottom: 0;
+  left: 0;
+  width: var(--sidebar-w);
+  background: #f8fbff;
+  border-right: 1.5px solid #d1e2fd;  /* <-- the ONE dividing line */
+  overflow: hidden;                    /* no sidebar scrollbar */
+  z-index: 900;
+}
+
+/* === Main content: the ONLY scroller === */
+.sadb-content {
+  flex: 1;
+  min-width: 0;                     /* IMPORTANT: prevents table cutoff */
+  height: 100%;
+  overflow: auto;                   /* the only scroll container */
+  padding: 28px 32px;
+  background: #f7fafc;
+  margin-left: 0;
+}
+
+/* ================= Page styles ================= */
+
+.superadmin-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.superadmin-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #23293b;
+}
+
+.superadmin-desc {
+  color: #475472;
+  font-size: 1.13rem;
+  margin-top: 3px;
+}
+
+.superadmin-add-btn {
+  padding: 13px 34px;
+  font-size: 1rem;
+  background: #1679fa;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(55, 123, 222, 0.07);
+  cursor: pointer;
+  margin-top: 3px;
+  transition: background 0.18s;
+}
+.superadmin-add-btn:hover { 
+  background: #79adff; 
+  color: #383838; 
+}
+
+.superadmin-table-wrap {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 10px rgba(21, 78, 203, 0.09);
+  margin-bottom: 36px;
+  width: 100%;
+  padding: 10px -10px 16px 30px;
+}
+
+.superadmin-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  font-size: 1.15em;
+  table-layout: auto;              /* stretch to container */
+}
+
+.superadmin-table th,
+.superadmin-table td {
+  padding: 12px 18px;
+  text-align: left;
+}
+.superadmin-table th {
+  color: #8192a6;
+  font-size: 1.1em;
+  font-weight: 600;
+  background: none;
+  border-bottom: 2.5px solid #e0e8f8;
+}
+
+.superadmin-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #d5e7fb;
+  color: #4663a5;
+  font-weight: 700;
+  font-size: 1.07em;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.superadmin-name { font-weight: 600; color: #171e2b; }
+.superadmin-role { font-weight: 700; color: #23293b; }
+.superadmin-email { color: #757b8a; }
+.superadmin-date  { color: #757b8a; }
+
+.superadmin-actions { display: flex; gap: 18px; }
+.superadmin-action-icon { width: 22px; height: 22px; cursor: pointer; opacity: 0.83; transition: opacity 0.13s; }
+.superadmin-action-icon:hover { opacity: 1; }
+
+/* Base look for all pager buttons (numbers + arrows) */
+.superadmin-pagination button {
+  appearance: none;
+  border: 1px solid #e0e8f8;
+  background: #fff;              /* white background */
+  color: #23293b;                 /* black/dark arrow/text */
+  padding: 6px 12px;
+  min-width: 38px;                /* nice square-ish arrows */
+  border-radius: 8px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .18s, color .18s, border-color .18s, box-shadow .18s;
+  box-shadow: 0 1px 2px rgba(16,24,40,.06);
+}
+
+/* Hover / active -> blue */
+.superadmin-pagination button:hover:not(:disabled),
+.superadmin-pagination button:active:not(:disabled),
+.superadmin-pagination button:focus-visible:not(:disabled) {
+  background: #1679fa;
+  color: #fff;
+  border-color: #1679fa;
+  outline: none;
+}
+
+/* Disabled arrows */
+.superadmin-pagination button:disabled {
+  background: #fff;
+  color: #9aa3b2;
+  border-color: #e7ecf6;
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.superadmin-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* center horizontally */
+  gap: 12px;
+  width: 100%;              /* important: let centering work */
+  margin: 16px 0 0;         /* 1rem above the pager */
+  padding: 0;               /* no extra padding on the container */
+  font-size: 1.14em;
+  color: #23293b;
+}
+
+/* Keep current page styling */
+.superadmin-pagination .page-active {
+  background: #1679fa;
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 13px;
+  font-weight: 700;
+  border: 1px solid #1679fa;
+}
+/* (optional) dots look */
+.superadmin-pagination span {
+  color: #8492a6;
+  padding: 4px 8px;
+}
+
+
+.blurred-bg { filter: blur(3px); pointer-events: none; user-select: none; }
+
+/* Ensure inner blocks use full width and don't impose max-widths */
+.sadb-content .superadmin-table-wrap,
+.sadb-content .superadmin-main,
+.sadb-content .superadmin-inner {
+  max-width: none !important;
+  width: 100% !important;
+  min-width: 0 !important;          /* helps with flex/grid children */
+}
+
+/* Optional: small screens—collapse sidebar width if you ever need it */
+@media (max-width: 1100px) {
+  .sadb-frame { --sidebar-w: 210px; }
+}

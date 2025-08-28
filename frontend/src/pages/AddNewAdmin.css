@@ -1,0 +1,127 @@
+.addadmin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2001;
+  background: rgba(110,120,138,0.07);
+  backdrop-filter: blur(2.8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addadmin-modal {
+  background: #fff;
+  border-radius: 12px;
+  border: 1.7px solid #e1e4ea;
+  max-width: 1440px;
+  min-width: 70vw;
+  width: 80vw;
+  box-shadow: 0 2px 40px rgba(40,50,90,0.11);
+  padding: 44px 42px 38px 42px;
+  position: relative;
+}
+
+.addadmin-modal-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.addadmin-modal-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: black;
+}
+
+.addadmin-modal-breadcrumb {
+  font-size: 1.11rem;
+  color: #6c6e7a;
+  margin-top: 7px;
+  font-weight: 400;
+}
+.addadmin-modal-breadcrumb b {
+  color: #18181a;
+  font-weight: 600;
+}
+
+.addadmin-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.addadmin-fields-row {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+}
+
+.addadmin-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 170px;
+  max-width: 330px;
+  gap: 7px;
+}
+.addadmin-field label {
+  font-size: 1.13em;
+  color: #23293b;
+  margin-bottom: 1.5px;
+  font-weight: 500;
+}
+
+.addadmin-field input,
+.addadmin-field select {
+  padding: 12px 14px;
+  font-size: 1.08em;
+  border: 1.1px solid #bfcbe1;
+  border-radius: 6px;
+  outline: none;
+  background: #f8fafc;
+  color: #191c25;
+  transition: border 0.17s;
+}
+.addadmin-field input:focus,
+.addadmin-field select:focus {
+  border: 1.2px solid #1976f5;
+  background: #fff;
+}
+
+.addadmin-modal-btn-row {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
+.addadmin-modal-btn {
+  font-size: 1.14em;
+  padding: 12px 48px;
+  border: none;
+  border-radius: 7px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(45,80,200,0.06);
+  margin-left: 0;
+  margin-top: 2px;
+}
+.addadmin-modal-btn.save {
+  background: #1679fa;
+  color: #fff;
+}
+.addadmin-modal-btn.cancel {
+  background: #f53c3c;
+  color: #fff;
+}
+.addadmin-modal-btn:active {
+  opacity: 0.89;
+}
+
+@media (max-width: 1100px) {
+  .addadmin-modal { padding: 22px 4vw 22px 4vw; }
+  .addadmin-fields-row { flex-direction: column; gap: 18px; }
+  .addadmin-modal-header-row { flex-direction: column; gap: 8px; }
+}

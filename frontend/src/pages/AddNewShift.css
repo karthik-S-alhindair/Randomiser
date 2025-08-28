@@ -1,0 +1,184 @@
+.addshift-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2001;
+  background: rgba(110,120,138,0.07);
+  backdrop-filter: blur(2.8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addshift-modal {
+  background: #fff;
+  border-radius: 12px;
+  border: 1.7px solid #e1e4ea;
+  max-width: 1440px;
+  min-width: 70vw;
+  width: 80vw;
+  box-shadow: 0 2px 40px rgba(40,50,90,0.11);
+  padding: 44px 42px 38px 42px;
+  position: relative;
+}
+
+.addshift-modal-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.addshift-modal-title {
+  font-size: 2.05rem;
+  font-weight: 700;
+  color: black;
+}
+
+.addshift-modal-breadcrumb {
+  font-size: 1.11rem;
+  color: #6c6e7a;
+  margin-top: 7px;
+  font-weight: 400;
+  text-align: right;
+}
+.addshift-modal-breadcrumb b {
+  color: #18181a;
+  font-weight: 600;
+}
+
+.addshift-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.addshift-fields-row {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+}
+
+.addshift-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 170px;
+  max-width: 330px;
+  gap: 7px;
+}
+.addshift-field label {
+  font-size: 1.13em;
+  color: #23293b;
+  margin-bottom: 1.5px;
+  font-weight: 500;
+}
+
+.addshift-field input {
+  padding: 12px 14px;
+  font-size: 1.08em;
+  border: 1.1px solid #bfcbe1;
+  border-radius: 6px;
+  outline: none;
+  background: #f8fafc;
+  color: #191c25;
+  transition: border 0.17s;
+}
+.addshift-field input:focus {
+  border: 1.2px solid #1976f5;
+  background: #fff;
+}
+
+/* Switch styling (reuse from other overlays if present) */
+.switch-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 30px 0 0 0;
+  font-size: 1.06em;
+  color: #5e6274;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 22px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 1px; left: 0; right: 0; bottom: 1px;
+  background-color: #ccc;
+  border-radius: 22px;
+  transition: background 0.2s;
+}
+.switch input:checked + .slider {
+  background-color: #32d383;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2.5px;
+  bottom: 1.7px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.switch input:checked + .slider:before {
+  transform: translateX(15px);
+}
+.switch-desc {
+  margin-left: 7px;
+  font-size: 1.05em;
+  color: #888;
+}
+
+.addshift-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 36px;
+}
+
+.addshift-modal-btn-row {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  justify-content: flex-end;
+}
+
+.addshift-modal-btn {
+  font-size: 1.14em;
+  padding: 11px 42px;
+  border: none;
+  border-radius: 7px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(45,80,200,0.06);
+  margin-left: 0;
+  margin-top: 2px;
+}
+.addshift-modal-btn.save {
+  background: #1679fa;
+  color: #fff;
+}
+.addshift-modal-btn.cancel {
+  background: #f53c3c;
+  color: #fff;
+}
+.addshift-modal-btn:active {
+  opacity: 0.89;
+}
+
+@media (max-width: 1100px) {
+  .addshift-modal { padding: 22px 4vw 22px 4vw; }
+  .addshift-fields-row { flex-direction: column; gap: 18px; }
+  .addshift-modal-header-row { flex-direction: column; gap: 8px; }
+  .addshift-bottom-row { flex-direction: column; gap: 16px; align-items: flex-start; }
+}

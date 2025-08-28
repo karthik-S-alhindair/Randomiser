@@ -1,0 +1,62 @@
+/* Admin universal layout overrides — ensures: fixed TopBar & Sidebar; only main content scrolls; single divider line */
+.admin-layout {
+  --adm-topbar-h: 68px;
+  --adm-sidebar-w: 250px;
+  background: #f7fafc;
+}
+
+/* Fixed sidebar with one clean dividing line */
+.admin-layout .adminsidebar-outer {
+  position: fixed;
+  top: var(--adm-topbar-h);
+  bottom: 0;
+  left: 0;
+  width: var(--adm-sidebar-w);
+  background: #f8fbff;
+  border-right: 1.5px solid #d1e2fd;
+  overflow: hidden;
+  z-index: 900;
+}
+
+/* Only main areas scroll. Add every admin page's main container here. */
+.admin-layout .admindash-main,
+.admin-layout .ar-main,
+.admin-layout .adminusers-main,
+.admin-layout .admindept-main,
+.admin-layout .adminshifts-main,
+.admin-layout .adminstation-main,
+.admin-layout .userdash-main {
+  margin-left: var(--adm-sidebar-w);
+  padding-top: calc(var(--adm-topbar-h) + 16px);
+  min-width: 0;
+  height: calc(100vh - var(--adm-topbar-h));
+  overflow: auto;
+  background: #fff;
+}
+
+/* Neutralize parent wrappers to avoid double scrolling */
+.admin-layout .admindash-outer,
+.admin-layout .admindash-inner,
+.admin-layout .ar-outer,
+.admin-layout .ar-inner,
+.admin-layout .userdash-outer,
+.admin-layout .userdash-inner {
+  min-height: 0 !important;
+  height: auto !important;
+  overflow: hidden !important;
+  background: transparent;
+}
+
+/* Ensure cards/tables never overflow the viewport width */
+.admin-layout .admindash-main > *,
+.admin-layout .ar-main > *,
+.admin-layout .adminusers-main > *,
+.admin-layout .admindept-main > *,
+.admin-layout .adminshifts-main > *,
+.admin-layout .adminstation-main > *,
+.admin-layout .userdash-main > * {
+  max-width: 100%;
+}
+
+/* Keep TopBar above everything */
+.admin-layout .admin-topbar { z-index: 1100; }

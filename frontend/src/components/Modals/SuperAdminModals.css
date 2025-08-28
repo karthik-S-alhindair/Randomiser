@@ -1,0 +1,167 @@
+/* ===== Overlay (shared) ===== */
+.sa-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+
+/* ===== Cards ===== */
+.sa-card {
+  width: min(1040px, 92vw);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.28);  /* subtle black border */
+  border-radius: 10px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.sa-card.confirm {
+  width: min(460px, 92vw);
+}
+
+/* Header row with breadcrumb on the right */
+.sa-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e9edf3;
+}
+.sa-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+.sa-breadcrumb {
+  font-size: 13.5px;
+  color: #6b7280;
+}
+.sa-breadcrumb b { color: #1f2937; }
+
+/* Body grid – 4 columns like the mock (Name, Designation, Email, Phone | Password, Username, Role, Station) */
+.sa-card-body {
+  padding: 18px 20px 8px;
+}
+.sa-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+
+/* Fields */
+.sa-field {
+  display: block;
+}
+.sa-field > span {
+  display: block;
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+
+/* Inputs/Selects – white like the mock */
+.sa-input,
+.sa-select {
+  width: 80%;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid #d8dbe1;
+  background: #ffffff;
+  color: #111827;
+  padding: 0 12px;
+  outline: none;
+}
+.sa-input:focus,
+.sa-select:focus {
+  border-color: #1679fa;
+  box-shadow: 0 0 0 3px rgba(22, 121, 250, 0.12);
+}
+
+/* Password with eye toggle inside */
+/* Ensure the input can host an absolutely-positioned button */
+.sa-input-wrap {
+  position: relative;
+}
+
+/* Give the input some room so text doesn't overlap the icon */
+.sa-input--with-eye {
+  padding-right: 40px;              /* adjust if your icon is wider */
+}
+
+/* Icon button: no border, no background, centered on the right */
+.sa-eye-btn {
+  position: absolute;
+  right: 10px;                      /* horizontal placement in the input */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 0;
+  border: none;                     /* no border */
+  background: transparent;          /* no background */
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+/* Size the PNG nicely */
+.sa-eye-btn img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* optional: visible focus outline for keyboard users */
+.sa-eye-btn:focus-visible {
+  outline: 2px solid rgba(22, 121, 250, 0.35);
+  border-radius: 4px;
+}
+
+
+/* Actions (bottom) */
+.sa-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 20px 18px;
+  border-top: 1px solid #e9edf3;
+}
+.sa-card-actions.center { justify-content: center; }
+
+/* Buttons */
+.sa-btn {
+  min-width: 96px;
+  height: 40px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+.sa-btn-primary {
+  background: #1679fa;
+  color: #fff;
+}
+.sa-btn-primary:hover { background: #146ae0; }
+
+.sa-btn-danger {
+  background: #e53935;
+  color: #fff;
+}
+.sa-btn-danger:hover { background: #cf2f2c; }
+
+.sa-btn-ghost {
+  background: #e5e7eb;
+  color: #111827;
+}
+.sa-btn-ghost:hover { background: #d9dbe1; }
+
+/* Small screens: 2 columns */
+@media (max-width: 1024px) {
+  .sa-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
